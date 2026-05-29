@@ -11,6 +11,10 @@ categories = ["compilers-interpreters", "no-std"]
 [lib]
 crate-type = ["cdylib", "lib"]  # for future WASM
 
+[[bin]]
+name = "ifascript"
+path = "src/main.rs"
+
 [dependencies]
 lazy_static = "1.4"
 rand = "0.8"

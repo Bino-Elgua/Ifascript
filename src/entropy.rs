@@ -95,3 +95,11 @@ impl CowrieOracle {
         u32::from_be_bytes([hash[0], hash[1], hash[2], hash[3]])
     }
 }
+
+pub fn cast_cowrie_deterministic(seed: [u8; 32], temporal_phase: u8) -> [u8; 32] {
+    use sha2::{Digest, Sha256};
+    let mut h = Sha256::new();
+    h.update(seed);
+    h.update([temporal_phase]);
+    h.finalize().into()
+}
